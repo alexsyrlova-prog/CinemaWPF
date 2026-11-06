@@ -1,0 +1,47 @@
+﻿<Window x:Class="KinoWPF.RegistrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KinoWPF"
+        mc:Ignorable="d"
+        Title="RegistrationWindow" Height="591" Width="800">
+    <StackPanel Margin="0,0,0,19">
+
+        <TextBlock Text="Регистрация" 
+                   FontSize="22" 
+                   FontWeight="Bold" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,0,0,20"/>
+
+        <TextBlock Text="Фамилия:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+        <TextBox x:Name="tb_LastName" Padding="6" Margin="0,0,0,12"/>
+
+        <TextBlock Text="Имя:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+        <TextBox x:Name="tb_FirstName" Padding="6" Margin="0,0,0,12"/>
+
+        <TextBlock Text="Ставка:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+        <TextBox x:Name="tb_Bet" Padding="6" Margin="0,0,0,12"/>
+
+        <TextBlock Text="Контактные данные:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+        <TextBox x:Name="tb_ContactInfo" Padding="6" Margin="0,0,0,12"/>
+
+        <TextBlock Text="Должность:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+        <ComboBox x:Name="cb_Role" Padding="6" Margin="0,0,0,15" DisplayMemberPath="Name"/>
+
+        <Separator Margin="0,5,0,15"/>
+
+        <TextBlock Text="Логин (для входа):" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,0,5"/>
+        <TextBox x:Name="tb_NewLogin" Padding="6" Margin="0,0,0,12"/>
+
+        <TextBlock Text="Пароль:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,0,5"/>
+        <TextBox x:Name="tb_NewPassword" Padding="6" Margin="0,0,0,12"/>
+
+        <Button x:Name="RegisterButton" 
+                Content="Зарегистрироваться" 
+                Padding="10" 
+                FontWeight="Bold"
+                HorizontalAlignment="Stretch" 
+                Margin="0,0,0,15"/>
+    </StackPanel>
+</Window>

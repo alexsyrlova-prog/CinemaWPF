@@ -1,0 +1,64 @@
+﻿<Window x:Class="KinoWPF.RentalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KinoWPF"
+        mc:Ignorable="d"
+        Title="Учет кинопроката" Height="750" Width="600" WindowStartupLocation="CenterScreen">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <!-- Линейный адаптивный контейнер -->
+        <StackPanel Margin="15">
+
+            <TextBlock Text="Сведения о кинопрокате" FontWeight="Bold" FontSize="14" Margin="0,0,0,10"/>
+
+            <!-- ТАБЛИЦА ПРОКАТА -->
+            <DataGrid x:Name="dgDistribution" Height="220" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Проект" Binding="{Binding ProjectName}" Width="*"/>
+                    <DataGridTextColumn Header="Дата выхода" Binding="{Binding ReleaseDate, StringFormat={}{0:dd.MM.yyyy}}" Width="Auto"/>
+                    <DataGridTextColumn Header="Кинотеатры" Binding="{Binding TheaterCount}" Width="Auto"/>
+                    <DataGridTextColumn Header="Сборы" Binding="{Binding BoxOffice, StringFormat={}{0:N0}}" Width="*"/>
+                    <DataGridTextColumn Header="Рейтинг" Binding="{Binding Rating, StringFormat={}{0:F1}}" Width="Auto"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <!-- КНОПКИ ДЛЯ ТАБЛИЦЫ -->
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,20">
+                <Button x:Name="btnAdd" Content="Добавить запись" Width="120" Margin="0,0,10,0" Click="BtnAdd_Click"/>
+                <Button x:Name="btnEdit" Content="Редактировать" Width="110" Margin="0,0,10,0" Click="BtnEdit_Click"/>
+                <Button x:Name="btnDelete" Content="Удалить" Width="100" Click="BtnDelete_Click"/>
+            </StackPanel>
+
+            <!-- ФОРМА ВВОДА (По умолчанию скрыта) -->
+            <StackPanel x:Name="panelForm" Visibility="Visible">
+                <TextBlock x:Name="lblFormTitle" Text="Параметры проката" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Проект *"/>
+                <ComboBox x:Name="cbFormProject" DisplayMemberPath="Name" SelectedValuePath="Id" Margin="0,2,0,10"/>
+
+                <TextBlock Text="Дата выхода в прокат *"/>
+                <DatePicker x:Name="dpFormDate" Margin="0,2,0,10"/>
+
+                <TextBlock Text="Количество кинотеатров *"/>
+                <TextBox x:Name="txtFormTheaters" Margin="0,2,0,10"/>
+
+                <TextBlock Text="Кассовые сборы (руб.)"/>
+                <TextBox x:Name="txtFormBoxOffice" Margin="0,2,0,10"/>
+
+                <TextBlock Text="Рейтинг (от 0 до 10) *"/>
+                <TextBox x:Name="txtFormRating" Margin="0,2,0,15"/>
+
+                <!-- Блок для отображения ошибок валидации -->
+                <TextBlock x:Name="lblValidationError" Foreground="Red" TextWrapping="Wrap" Margin="0,0,0,10" Visibility="Visible"/>
+
+                <!-- КНОПКИ ФОРМЫ -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+                    <Button x:Name="btnSave" Content="Сохранить" Width="80" Margin="0,0,10,0" Click="BtnSave_Click"/>
+                    <Button x:Name="btnCancel" Content="Отмена" Width="80" Click="BtnCancel_Click"/>
+                </StackPanel>
+            </StackPanel>
+
+        </StackPanel>
+    </ScrollViewer>
+</Window>

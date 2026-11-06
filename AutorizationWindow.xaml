@@ -1,0 +1,35 @@
+﻿<Window x:Class="KinoWPF.AutorizationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KinoWPF"
+        mc:Ignorable="d"
+        Title="Авторизация" SizeToContent="Height" Width="350" WindowStartupLocation="CenterScreen" Background="#F9F9F9">
+    <StackPanel>
+
+        <TextBlock Text="Вход в систему" 
+                   FontSize="20" 
+                   FontWeight="Bold" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,0,0,20"/>
+
+        <TextBlock Text="Логин:" FontWeight="Bold" Margin="0,0,0,5"/>
+        <TextBox x:Name="tb_Login" Padding="6" Margin="0,0,0,15"/>
+                  
+        <TextBlock Text="Пароль:" FontWeight="Bold" Margin="0,0,0,5"/>
+        <TextBox x:Name="tb_Password" Padding="6" Margin="0,0,0,15"/>
+
+        <Button x:Name="btn_Login" 
+                Content="Войти" 
+                Padding="10" 
+                FontWeight="Bold"
+                HorizontalAlignment="Stretch" 
+                Click="LoginButton_Click"
+                Margin="0,0,0,15"/>
+
+        <Button x:Name="btn_Register" 
+                Content="Регистрация" 
+                HorizontalAlignment="Center" Click="btn_Register_Click"/>
+    </StackPanel>
+</Window>
